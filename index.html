@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <link rel="stylesheet" href="./index.css">
+   </head>
+   <body>
+       <div id="每日收益曲线"></div>
+       <div class="text">
+            <div id="text1"></div>
+            <div id="text2"></div>
+            <div id="text3"></div>
+            <div id="text4"></div>
+       </div>
+
+   </body>
+   <script src="./data.js"></script>
+   <script>
+
+    var echarts = echarts.init(document.getElementById('每日收益曲线'))
+    echarts.setOption({
+        title: {
+            text: '收益曲线'
+        },
+        legend: {
+            data: ['上证指数', '沪深300', 'lzh', 'mzw', 'wc']
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: 日期
+        },
+        yAxis: {
+            type: 'value',
+            splitNumber: 10,
+            max: 4800,
+            min: 4400
+        },
+        series: series
+    })
+
+    document.getElementById('text1').innerHTML = '沪深300同期收益' + winR(指数)
+    document.getElementById('text2').innerHTML = 'lzh同期收益' + winR(series[1].data)
+    document.getElementById('text3').innerHTML = 'mzw同期收益' + winR(series[2].data)
+    document.getElementById('text4').innerHTML = 'wc同期收益' + winR(series[3].data)
+   </script>
+</html>

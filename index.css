@@ -1,0 +1,11 @@
+#每日收益曲线 {
+    width: 80%;
+    height: 500px;
+    margin: auto;
+}
+.text{
+    text-align: center;
+    font-size: 16px;
+    color: #B03A2E;
+    line-height: 30px;
+}
